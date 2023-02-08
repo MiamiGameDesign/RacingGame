@@ -19,7 +19,6 @@ public class CarPhysicsController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.freezeRotation = true;
         rb.angularDrag = 5;
         
         // Remove friction
