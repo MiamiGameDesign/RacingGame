@@ -632,8 +632,8 @@ MonoBehaviour:
   moveSpeed: 8
   accel: 10
   turnSpeed: 80
-  groundCheckDistance: 0.25
-  groundCheckHalfExtents: {x: 0.5, y: 0.25, z: 1}
+  groundCheckDistance: 0.2
+  groundCheckHalfExtents: {x: 0.5, y: 0.1, z: 1}
 --- !u!54 &1404230867
 Rigidbody:
   m_ObjectHideFlags: 0
