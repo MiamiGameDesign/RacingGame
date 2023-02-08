@@ -20,7 +20,6 @@ public class CarPhysicsController : MonoBehaviour
     {
         Time.timeScale = 2;
         rb = GetComponent<Rigidbody>();
-        //rb.freezeRotation = true;
         rb.angularDrag = 5;
         
         // Remove friction
