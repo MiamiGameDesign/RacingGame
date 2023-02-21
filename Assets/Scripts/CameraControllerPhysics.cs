@@ -10,6 +10,10 @@ public class CameraControllerPhysics : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         transform.position = target.position;
         camera.transform.localPosition = offset;
 
