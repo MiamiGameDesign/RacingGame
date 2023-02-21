@@ -32,15 +32,16 @@ public class CarPhysicsController : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        bool grounded = Physics.BoxCast(transform.position, groundCheckHalfExtents, -transform.up, out hit, transform.rotation, groundCheckDistance);
+        bool grounded = Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance);
+        //bool grounded = Physics.BoxCast(transform.position, groundCheckHalfExtents, -transform.up, out hit, transform.rotation, groundCheckDistance);
         var movementNormal = grounded ? hit.normal : transform.up;
+        Debug.Log(movementNormal);
 
         transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime);
 
         var groundedVelocity = rb.velocity - Vector3.Dot(movementNormal, rb.velocity) * movementNormal;
 
-        if (grounded)
-            rb.velocity += Step(groundedVelocity, transform.forward * moveSpeed, accel * Time.fixedDeltaTime);
+        rb.velocity += Step(groundedVelocity, transform.forward * moveSpeed, accel * Time.fixedDeltaTime);
     }
 
     // Move from one vector to another by a certain amount.
@@ -55,5 +56,6 @@ public class CarPhysicsController : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(transform.position + -transform.up * groundCheckDistance, groundCheckHalfExtents * 2f);
+        Gizmos.DrawLine(transform.position, transform.position - groundCheckDistance * transform.up);
     }
 }
