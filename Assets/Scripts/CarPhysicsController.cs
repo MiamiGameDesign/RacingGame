@@ -36,7 +36,6 @@ public class CarPhysicsController : MonoBehaviour
         bool grounded = Physics.Raycast(transform.position, -transform.up, out hit, groundCheckDistance);
         //bool grounded = Physics.BoxCast(transform.position, groundCheckHalfExtents, -transform.up, out hit, transform.rotation, groundCheckDistance);
         var movementNormal = grounded ? hit.normal : transform.up;
-        Debug.Log(movementNormal);
 
         transform.Rotate(Vector3.up * Input.GetAxis("Horizontal") * turnSpeed * Time.deltaTime);
 
