@@ -6,7 +6,7 @@ public class MenuScript : MonoBehaviour
 {
     public AudioClip joe;
     public void StartGame() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Ohio");
     }
 
     public void QuitGame()
