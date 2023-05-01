@@ -19,24 +19,18 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        
-        if (Time.timeScale == 1)
-        {
-            timeElapsed = (Time.time - startTime) * Time.timeScale;
-            timeElapsedL = (Time.time - startTimeL) * Time.timeScale;
-        }
-        /*Debug.Log("z: " + transform.position.z + " y: " + transform.position.y);
-        Debug.Log("Coordinates good? " + (transform.position.x >= -22 && transform.position.x <= -13 && transform.position.z >= -42 && transform.position.z <= -40 && transform.position.y > 0 && transform.position.y < 1.1));
-        Debug.Log("time: " + (Mathf.Round(timeElapsed * 100f) / 100f) % 60);*/
-        textBoxL.GetComponent<Text>().text = "Laps Completed: " + lapsDone + "\nCurrent Lap Time: "  + (Mathf.Round(timeElapsedL * 100f) / 100f) % 60;
-        textBoxT.GetComponent<Text>().text = "Total Time: " + (Mathf.Round(timeElapsed * 100f) / 100f) % 60;
+
+        timeElapsed = (Time.time - startTime) * Time.timeScale;
+        timeElapsedL = (Time.time - startTimeL) * Time.timeScale;
+        textBoxL.GetComponent<Text>().text = "Laps Completed: " + lapsDone + "\nCurrent Lap Time: "  + (Mathf.Round(timeElapsedL * 100f) / 100f);
+        textBoxT.GetComponent<Text>().text = "Total Time: " + (Mathf.Round(timeElapsed * 100f) / 100f);
         if (lapCompleted && !actionCompleted)
         {
             startTimeL = Time.time;
             lapsDone++;
-            if ((Mathf.Round(timeElapsedL * 100f) / 100f) % 60 < bestTime)
+            if ((Mathf.Round(timeElapsedL * 100f) / 100f) < bestTime)
             {
-                bestTime = (Mathf.Round(timeElapsedL * 100f) / 100f) % 60;
+                bestTime = (Mathf.Round(timeElapsedL * 100f) / 100f);
                 textBoxB.GetComponent<Text>().text = "Best Time: " + bestTime;
             }
             actionCompleted = true;
