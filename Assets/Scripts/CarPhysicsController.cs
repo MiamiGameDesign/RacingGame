@@ -18,7 +18,6 @@ public class CarPhysicsController : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = 2;
         rb = GetComponent<Rigidbody>();
         rb.angularDrag = 5;
         
