@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 public class arcadeControls : MonoBehaviour
 {
 
+    public AudioSource a;
     // Update is called once per frame
+    void Start()
+    {
+        a.loop = true;
+        a.PlayDelayed(8.5f);
+    }
     void Update()
     {
         if (Input.GetKey(KeyCode.Escape))
@@ -14,5 +20,7 @@ public class arcadeControls : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        
     }
+
 }

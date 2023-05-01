@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     int lapsDone = 0;
     private bool lapCompleted = false;
     private bool actionCompleted = false;
+    public AudioSource success;
     void Start()
     {
         startTime = Time.time;
@@ -28,6 +29,7 @@ public class Timer : MonoBehaviour
         {
             startTimeL = Time.time;
             lapsDone++;
+            success.Play();
             if ((Mathf.Round(timeElapsedL * 100f) / 100f) < bestTime)
             {
                 bestTime = (Mathf.Round(timeElapsedL * 100f) / 100f);
